@@ -1,0 +1,8 @@
+snapshot 'ip_traffic_by_minute', 'ip_snapshot'
+disable 'ip_traffic_by_minute_speed'
+drop 'ip_traffic_by_minute_speed'
+clone_snapshot 'ip_snapshot', 'ip_traffic_by_minute_speed'
+delete_snapshot 'ip_snapshot'
+truncate 'ip_traffic_by_minute'
+
+exit

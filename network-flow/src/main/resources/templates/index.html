@@ -1,0 +1,65 @@
+<html>
+	<head>
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous" />
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.3/Chart.bundle.min.js" type="text/javascript"></script>
+		<title>Network Flow Visualizer</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0"/>
+	</head>
+	<body>
+		<nav class="navbar navbar-expand-lg navbar-light bg-light">
+			<a class="navbar-brand" href="#">Network Flow Visualizer</a>
+		</nav>
+		<div class="container">
+			<div class="row">
+				<div class="col-md-3">
+					<form>
+						  <div class="form-group">
+						    <label for="exampleFormControlSelect2">Top 500 IP Address: Count</label>
+						    <select name="ipAddress" multiple="true" class="form-control" id="exampleFormControlSelect2">
+						      <option th:each="ipAddress : ${ipAddresses}" th:attr="value = ${ipAddress.address}" th:text="${ipAddress.address} + ': ' + ${ipAddress.count}"></option>
+						    </select>
+							</div>
+							<div class="form-group">
+								<label for="ipAddressCustom">Custom IP Address</label>
+								<input type="text" class="form-control" id="ipAddress" name="ipAddress"/>
+							</div>
+						<div class="form-group">
+							<label for="field">Field</label>
+							<select class="form-control" id="field" name="field">
+								<option value="inBytes">In Bytes</option>
+								<option value="outBytes">Out Bytes</option>
+								<option value="inCount">In Count</option>
+								<option value="outCount">Out Count</option>
+							</select>
+						</div>
+						<div class="form-group">
+							<label for="scale">Scale</label>
+							<select class="form-control" id="scale" name="scale">
+								<option value="linear">Linear</option>
+								<option value="logarithmic">Logarithmic</option>
+							</select>
+						</div>
+						<div class="form-group">
+							<label for = "chunkSize"># of Minutes to Group</label>
+							<input type="text" class="form-control" id="chunkSize" name="chunkSize" />
+						</div>
+						<div class="form-group">
+							<label for="fromTime">Start Time</label>
+							<input type="datetime-local" class="form-control" id="fromTime" name="fromTime" />
+						</div>
+						<div class="form-group">
+							<label for="toTime">End Time</label>
+							<input type="datetime-local" class="form-control" id="toTime" name="toTime" />
+						</div>
+						<button type="button" class="btn btn-primary" onclick="updateGraph(event)">Update</button>
+					</form>
+				</div>
+				<div class="col-md-9">
+					<h1>Network Flow</h1>
+					<canvas id="myChart" width="400" height="200"></canvas>
+				</div>
+			</div>
+		</div>
+		<script th:src="@{/main.js}" src="/main.js" type="text/javascript"></script>
+	</body>
+</html>

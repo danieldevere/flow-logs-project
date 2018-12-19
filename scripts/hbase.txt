@@ -1,0 +1,7 @@
+create 'ip_traffic_by_minute',{NAME => 'ipAddress', VERSIONS => 100},{NAME => 'inBytes', VERSIONS => 100}, {NAME => 'inCount', VERSIONS => 100}, {NAME => 'outBytes', VERSIONS => 100}, {NAME => 'outCount', VERSIONS => 100}
+
+create 'ip_traffic_by_minute_speed',{NAME => 'ipAddress', VERSIONS => 100},{NAME => 'inBytes', VERSIONS => 100}, {NAME => 'inCount', VERSIONS => 100}, {NAME => 'outBytes', VERSIONS => 100}, {NAME => 'outCount', VERSIONS => 100}
+
+create 'top_ip_addresses', {NAME => 'ipAddress'},{NAME => 'count'}
+
+exit
