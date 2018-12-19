@@ -41,20 +41,3 @@ This ended up being quite a project to do, but one of the benefits was that runn
   * hbase_swap_tables.txt (this swaps the hbase speed table with the batch table)
   * cleanup.hql (cleans up the Hive tables before the next batch)
 
-## AWS Console Access
-* URL: https://429810162652.signin.aws.amazon.com/console
-* username: big-data-ta
-* password: 02W4T0aJZ4mP
-* Note: you only have ReadOnly access to S3, EMR and Lambda (including logs). If you need more permissions let me know and I can grant them right away.
-
-## EMR Cluster SSH Access
-```bash
-$ ssh hadoop@ec2-100-25-160-155.compute-1.amazonaws.com
-# password is same as console access password above (you will have sudo privileges)
-```
-
-## App Server SSH Access
-```bash
-$ ssh ubuntu@ec2-54-86-59-74.compute-1.amazonaws.com
-# password is same as console access password above (you will have sudo privileges)
-```
